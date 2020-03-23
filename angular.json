@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "TransportadoraFront": {
@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "TransportadoraFront"
+    }
+  },
+  "defaultProject": "TransportadoraFront",
+  "cli": {
+    "analytics": "1ed8cf53-480a-45b1-b309-81e714d5588a"
+  }
 }

@@ -1,0 +1,256 @@
+<div class="container">
+  <div class="container-fluid">
+    <br />
+    <div class="row">
+      <br />
+      <h1>Transportadoras |<u>...</u></h1>
+      <button (click)="openCadastro(content)" style="left: 66%; position: relative;" class="btn btn-success">Cadastre
+        sua Transportadora</button>
+    </div>
+  </div>
+</div>
+<hr style="background-color: black;">
+<div class="tab-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row space-8">
+        <div class="col-md-3">
+          <div class="form-group">
+            <div class="container">
+              <strong>Transportadoras</strong>
+              <div class="form-group form-inline">
+                Filtrar por Nome: <input class="form-control ml-2" type="text" />
+              </div>
+              <div class="form-group form-inline">
+                Filtrar por Estado: <input class="form-control ml-2" type="text" />
+              </div>
+              <div class="form-group form-inline">
+                Filtrar por Cidade: <input class="form-control ml-2" type="text" />
+              </div>
+              <div class="form-group form-inline">
+                Filtrar por Modal: <input class="form-control ml-2" type="text" />
+              </div>
+            </div>
+            <hr style="background-color: black;">
+            <div class="container" >
+              <strong>Ufs</strong>
+              <br/>
+              .Pernambuco
+
+              <br />
+              .São Paulo
+              <!--Aqui fica a lista de nomes-->
+            </div>
+            <div class="container">
+              <strong>Localização (Municípios)</strong>
+              <br />
+              .Recife
+              <br />
+              .Sorocaba
+              <!--Aqui fica a lista de Municípios-->
+            </div>
+            <div class="container">
+              <strong>Modal</strong>
+              <br />
+              .Rodoviaria
+              <br />
+              .Aereo
+              <!--Aqui fica a lista de Modais-->
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-9">
+            <div class="form-group">
+              <table>
+                <tr>
+                  <th>Nome</th>
+                  <th>Empresa</th>
+                  <th>Cnpj</th>
+                  <th>Modal</th>
+                  <th>Telefone</th>
+                  <th>E-mail</th>
+                  <th>Rua</th>
+                  <th>Bairro</th>
+                  <th>Cidade</th>
+                  <th>Numero</th>
+                  <th>Uf</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+                <tr *ngFor="let transportadora of transportadoras">
+                  <td>{{transportadora.nome}}</td>
+                  <td>{{transportadora.empresa}}</td>
+                  <td>{{transportadora.cnpj}}</td>
+                  <td>{{transportadora.modal}}</td>
+                  <td>{{transportadora.telefone}}</td>
+                  <td>{{transportadora.email}}</td>
+                  <td>{{transportadora.rua}}</td>
+                  <td>{{transportadora.bairro}}</td>
+                  <td>{{transportadora.cidade}}</td>
+                  <td>{{transportadora.numero}}</td>
+                  <td>{{transportadora.uf}}</td>
+                  <td><button (click)="openAtualiza(content2)" class="btn btn-primary">Atualizar</button></td>
+                  <td><button (click)="deletarTransportadora(transportadora.id)" class="btn btn-danger">Deletar</button></td> 
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Dados</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div>
+        <div>Nome:</div>
+        <div><input type="text" name="nome" [(ngModel)]="transportadora.nome"></div>
+      </div>
+
+      <div>
+        <div>Empresa:</div>
+        <div><input type="text" name="empresa" [(ngModel)]="transportadora.empresa"></div>
+      </div>
+
+      <div>
+        <div>Cnpj:</div>
+        <div><input type="text" name="cnpj" [(ngModel)]="transportadora.cnpj"></div>
+      </div>
+
+      <div>
+        <div>Modal:</div>
+        <div><input type="text" name="modal" [(ngModel)]="transportadora.modal"></div>
+      </div>
+
+      <div>
+        <div>Telefone:</div>
+        <div><input type="text" name="telefone" [(ngModel)]="transportadora.telefone"></div>
+      </div>
+
+      <div>
+        <div>E-mail:</div>
+        <div><input type="text" name="email" [(ngModel)]="transportadora.email"></div>
+      </div>
+
+      <div>
+        <div>Rua:</div>
+        <div><input type="text" name="rua" [(ngModel)]="transportadora.rua"></div>
+      </div>
+
+      <div>
+        <div>Bairro:</div>
+        <div><input type="text" name="bairro" [(ngModel)]="transportadora.bairro"></div>
+      </div>
+
+      <div>
+        <div>Cidade:</div>
+        <div><input type="text" name="cidade" [(ngModel)]="transportadora.cidade"></div>
+      </div>
+
+      <div>
+        <div>Numero:</div>
+        <div><input type="text" name="numero" [(ngModel)]="transportadora.numero"></div>
+      </div>
+
+      <div>
+        <div>Uf:</div>
+        <div><input type="text" name="uf" [(ngModel)]="transportadora.uf"></div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" (click)="cadastrarTransportadora()" class="btn btn-success ">Cadastrar</button>
+  </div>
+</ng-template>
+
+
+<ng-template #content2 let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Dados</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div>
+        <div>Nome:</div>
+        <div><input type="text" name="nome" [(ngModel)]="transportadora.nome"></div>
+      </div>
+
+      <div>
+        <div>Empresa:</div>
+        <div><input type="text" name="empresa" [(ngModel)]="transportadora.empresa"></div>
+      </div>
+
+      <div>
+        <div>Modal:</div>
+        <div><input type="text" name="modal" [(ngModel)]="transportadora.modal"></div>
+      </div>
+
+      <div>
+        <div>Telefone:</div>
+        <div><input type="text" name="telefone" [(ngModel)]="transportadora.telefone"></div>
+      </div>
+
+      <div>
+        <div>E-mail:</div>
+        <div><input type="text" name="email" [(ngModel)]="transportadora.email"></div>
+      </div>
+
+      <div>
+        <div>Rua:</div>
+        <div><input type="text" name="rua" [(ngModel)]="transportadora.rua"></div>
+      </div>
+
+      <div>
+        <div>Bairro:</div>
+        <div><input type="text" name="bairro" [(ngModel)]="transportadora.bairro"></div>
+      </div>
+
+      <div>
+        <div>Cidade:</div>
+        <div><input type="text" name="cidade" [(ngModel)]="transportadora.cidade"></div>
+      </div>
+
+      <div>
+        <div>Numero:</div>
+        <div><input type="text" name="numero" [(ngModel)]="transportadora.numero"></div>
+      </div>
+
+      <div>
+        <div>Uf:</div>
+        <div><input type="text" name="uf" [(ngModel)]="transportadora.uf"></div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button (click)="atualizarTransportadora(transportadora.id)" class="btn btn-primary">Atualizar</button>
+  </div>
+</ng-template>
+
+<ng-template #content3 let-modal>
+  <div class="modal-header">
+  </div>
+  <div class="modal-body">
+    <form>
+      <div style="padding: 0.5rem; display: flex; justify-content: center;">
+        <h4>Deseja deletar o Registro ?</h4>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer" *ngFor="let transportadora of transportadoras">
+    <button (click)="modal.dismiss('Cross click')" class="btn btn-secondary">Cancelar</button>
+    <button (click)="deletarTransportadora(transportadora.id)" class="btn btn-danger">Deletar</button>
+  </div>
+</ng-template>
